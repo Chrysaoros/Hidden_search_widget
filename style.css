@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-image: linear-gradient(90deg, #7d5fff, #f158e2);
+}
+
+.search-container {
+    position: relative;
+    height: 50px;
+}
+
+.search-container .search {
+    /* position: absolute; */
+    background-color: #fff;
+    border: 0;
+    font-size: 18px;
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    transition: width 0.3s ease;
+}
+
+.search-btn {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    height: 50px;
+    width: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/*
+In terms of accessability, this is a bad thing.
+We should NEVER outright remove "outline" on elements without a proper replacement.
+"outline" marks the element when we scroll through them with the aid of a keyboard (default "Tab" key), also with a click of a mouse.
+We want to remove the "outline" only when we use the mouse on them BUT have it remain active if the keyboard is used.*/
+.search:focus, .search-btn:focus {
+    outline: none;
+}
+
+.search-container.active .search {
+    width: 200px;
+}
+
+.search-container.active .search-btn {
+    transform: translateX(198px);
+}
